@@ -1,0 +1,1 @@
+pyinstaller example.py pisqpipe.py Threat.py Node.py util.py Data.py hash.py --name pbrain-minimax.exe --onefile
