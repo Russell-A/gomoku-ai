@@ -1,12 +1,13 @@
 # gomoku-ai
 
-	For the final project, our group has designed two sorts of gomoku AI by using minimax together with situation evaluation and monte-carlo tree search. You can find the source code and executable AI in folders, and one corresponds for a different AI. The report will briefly explain the techniques we have used in our AI.
+For the final project, our group has designed two sorts of gomoku AI by using minimax together with situation evaluation and monte-carlo tree search. You can find the source code and executable AI in folders, and one corresponds for a different AI. The report will briefly explain the techniques we have used in our AI.
   
-  Remember to use Piskvork if you want to play against AI or if you want to launch the tournament of Artificial Intelligences.
+Remember to use Piskvork if you want to play against AI or if you want to launch the tournament of Artificial Intelligences.
 
 ## Minimax with situation evaluation:
 
-	This AI is improved from our midterm one, using the tradition way of minimax with alpha-beta pruning and situation evaluation. Given a gameboard with me being the next move, we can form a minimax search tree, where the max node and the min node take turns to appear. The max node gets the highest value of its children while the min node gets the lowest one. 
+This AI is improved from our midterm one, using the tradition way of minimax with alpha-beta pruning and situation evaluation. Given a gameboard with me being the next move, we can form a minimax search tree, where the max node and the min node take turns to appear. The max node gets the highest value of its children while the min node gets the lowest one. 
+
 Ideally, the minimax search tree should take all its children into consideration, but it will cost a lot of times and computation resources in this way. Therefore, we evaluate the status of each child for each node and prune worse ones during expanding a minimax tree. In such a way, it may cause little bias in exchange of computation time, and we hold the belief that through our evaluation function, the bias can be reduced, even to zero. The AI submitted is set with maximum 3 children for a node and depth 5 for the search tree.
 
 Alpha-beta pruning means that for every min node, if the parent node has already gotten a value larger than or equal to its current value, then we can prune the node from the graph. The reason is simple. The min node can never return a value larger the parent node has, so it is useless. For the max node, it’s similar except that it is pruned if its value is larger than or equal to its parent’s current value. 
@@ -25,7 +26,7 @@ Therefore, there are three steps when searching for the killing move. First, che
 
 As we expected, this Ai practices well and make scores over 1300
 
-MCTS
+## MCTS
 
 MCTS is the abbreviation of Monte Carlo Tree Search. MCTS requires a large number of simulation and builds up a large search tree according to the results. An important feature of MCTS is its estimated value will become more and more accurate with the increase of the simulation times and nodes accessed. The basic process of MCTS is shown in Fig. 1. It consists of four main stages: Selection, Expansion, Simulation, and Backpropagation.
 
